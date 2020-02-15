@@ -286,6 +286,7 @@
     border: 1px solid #5244a9;
     margin: 10px;
     margin-left: 0;
+    padding: 1px;
 }
 
 .mns-content .field input {
