@@ -106,6 +106,7 @@ function showLinkCopied() {
     var time = step;
     var value = 0.033;
     var $linkCopied =  $('.link-copied');
+    $linkCopied.css('display', 'block');
     
     while (time <= 1000) {
         
@@ -126,6 +127,9 @@ function showLinkCopied() {
         setTimeout(function(v) {
 
             $linkCopied.css('opacity', `${v}`);  
+            if (v < 0) {
+                $linkCopied.css('display', 'none');
+            }
         }.bind(null, value), time);
 
         time = time + step;  

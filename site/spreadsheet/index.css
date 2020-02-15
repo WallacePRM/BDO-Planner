@@ -351,9 +351,10 @@
 }
 
 .link-copied {
+    display: none;
     position: absolute;
-    top: 240px;
-    right: 40px;
+    top: 245px;
+    right: 55px;
     background-color: rgb(70, 156, 70);
     color: white;
     border-radius: 3px;
