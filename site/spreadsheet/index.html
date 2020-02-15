@@ -1,0 +1,127 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://kit.fontawesome.com/1b79c4b552.js" crossorigin="anonymous"></script>
+        <!--<link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../template.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="../jquery-3.4.1.min.js"></script>
+        <title>BDO Planilha</title>
+    </head>
+    <body>
+        <div class="app">
+            <div class="app-header">
+                <div class="header-left">
+                    <img src="../imgs/logo.png">
+                    <a class="logo-name left" title="Ir para a página inicial" href="../index.html">BDO Planilha</a> 
+                </div>
+                <div class="header-right"></div>
+            </div>
+            <div class="app-content">
+                <div class="spreadsheet-header">
+                    <div>
+                        <input name="nameGuild" onchange="handleChangeNameGuild()" placeholder="Nome da Guilda" title="Guilda"/>
+                    </div>
+                    <div>
+                        <input onkeyup="handleSearchText()" class="field-search" type="text" placeholder="Pesquisar">
+                        <!--<i class="fas fa-share-alt" title="Compartilhar planilha"></i>-->
+                        <i onclick="handleShowOptions()" class="fas fa-ellipsis-v options" title="Opções"></i>
+                     </div>
+
+                     <div onclick="handleShowOptions()" class="popup-background">
+                        <div class="popup-options">
+                            <div class="popup-item"><a target="__blank" href="../spreadsheet/index.html?newspreadsheet"><i class="fa fa-table"></i>Nova planilha</a></div>
+                            <div class="popup-item"><i class="fa fa-edit"></i>Alterar coluna</div>
+                            <div onclick="handleShowBackgroundRow()" class="popup-item"><i class="fa fa-plus"></i>Adicionar linhas</div>                        
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="wrapper-link">
+                    <p>
+                        <span>Link da Planilha:</span>
+                        <span class="link"></span>
+                    </p>
+                    <span onclick="handleCopyLink()" class="copy">
+                        <i title="Copiar link" class="fas fa-copy" aria-hidden="true"></i>
+                    </span>
+                    <div class="link-copied">
+                        <i class="tail-up"></i>
+                        <span>Copiado!</span>
+                    </div>
+                </div>
+                <div class="wrapper-spreadsheet">
+                    
+                    <table class="spreadsheet">
+                        <thead>
+                            <tr class="row header"></tr>
+                        </thead>
+                        <tbody></tbody>
+                        
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="handleShowBackgroundRow()" class="background-row">
+            <div onclick="event.stopPropagation()" class="row-count">
+                <div class="mb-0">
+                    <span>Número de linhas adicionais: </span>
+                    <input name="rowCount" type="number">
+                </div>
+                <button onclick="handleCreateRows()" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+
+        <div class="mns-background">
+            <div class="modal-new-spreadsheet">
+                <div class="mns-header">
+                    <h2>Crie sua planilha</h2>
+                    <!--<i onclick="hiddenModal()" class="fa fa-times"></i>-->
+                </div>
+                <div class="mns-content">
+                    <label>Colunas</label>
+                    <div class="content-fields">
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Familia">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Personagem">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="PA">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="PA Despertado">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="PD">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        <div class="field">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="GS">
+                            <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
+                        </div>
+                        
+                        <i onclick="handleNewColumn()" name="btnNewColumn" class="fa fa-plus btn btn-primary" title="Adicionar coluna"></i>
+                    </div>
+                </div>
+                <div class="mns-footer">
+                    <button onclick="handleCreateSpreadsheet()" name="btnConfirm" class="btn btn-primary">Confirmar</button>
+                </div>  
+            </div>
+        </div>
+
+        <script src="../fetch-utils.js"></script>
+        <script src="../spreadsheet-api.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

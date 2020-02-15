@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftps://waws-prod-dm1-161.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>01/11/2020 17:47:32</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>01/11/2020 17:47:32</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>09/15/2019 16:25:40</publishTime>
+    </File>
+    <File Include="SpreadSheetApi.deps.json">
+      <publishTime>02/10/2020 14:11:14</publishTime>
+    </File>
+    <File Include="SpreadSheetApi.dll">
+      <publishTime>02/10/2020 14:11:13</publishTime>
+    </File>
+    <File Include="SpreadSheetApi.exe">
+      <publishTime>02/10/2020 14:11:13</publishTime>
+    </File>
+    <File Include="SpreadSheetApi.pdb">
+      <publishTime>02/10/2020 14:11:13</publishTime>
+    </File>
+    <File Include="SpreadSheetApi.runtimeconfig.json">
+      <publishTime>01/28/2020 17:28:13</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>12/12/2019 12:53:30</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>12/12/2019 12:53:38</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>12/12/2019 12:53:30</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>02/10/2020 14:12:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

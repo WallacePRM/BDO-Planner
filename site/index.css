@@ -1,0 +1,160 @@
+
+.app {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(imgs/game_classes_10_musa.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* ------------- SITE PART 1 ------------- */
+
+.app-header {
+    background: rgba(0, 0, 0, 0.295);
+    border-bottom: 1px solid #aaa;
+}
+
+.app-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* ------------- SITE PART 2 ------------- */
+
+.content-welcome {
+    display: flex;
+    background-color: white;
+    color: rgb(238, 236, 236);
+    padding: 40px;
+    background: transparent;
+    min-height: 500px;
+}
+
+.cw-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cw-left img {
+    height: 400px;
+    margin-right: 20px;
+}
+
+.cw-right {
+    padding-top: 45px;
+    flex: 1;
+}
+
+.cw-right h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.cw-right p {
+    margin-bottom: 40px;
+    max-width: 600px;
+    text-align: justify;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.cw-right .logo-creator {
+    margin-bottom: 40px;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.cw-right .logo-creator a {
+    color: rgb(58, 144, 202);
+    text-decoration: none;
+}
+
+.cw-right .logo-creator a:hover {
+    color: rgb(88, 176, 235);
+}
+
+
+.cw-right .btn-success {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(23, 161, 23);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cw-right .btn-success:hover {
+    background-color: rgb(26, 179, 26);
+}
+
+.cw-right .btn-success i {
+    margin: 0;
+    margin-left: 10px;
+    color: #eee;
+}
+
+/* ------------- SITE PART 3 ------------- */
+
+.content-features {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    background-image: url(imgs/abstrato-branco-cinza-degrade-cor-de-fundo_125759-204.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    padding: 40px 20px;
+    padding-bottom: 0px;
+}
+
+.feature p {
+    margin: 0;
+}
+
+.feature .feature-title {
+    margin: 10px 0;
+}
+
+.feature .advantage1,
+.feature .advantage2,
+.feature .advantage3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid currentColor;
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+}
+.feature .advantage1 {
+    color: rgb(190, 62, 62);
+}
+
+.feature .advantage2 {
+    color: rgb(104, 78, 151);
+}
+
+.feature .advantage3 {
+    color: #4267b2;
+}
+
+.feature .fa {
+    font-size: 2.7rem;
+    padding: 10px;
+}
+
+.feature-description {
+    text-align: justify;
+}
+
+

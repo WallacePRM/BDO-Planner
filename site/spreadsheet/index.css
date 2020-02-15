@@ -1,0 +1,370 @@
+
+
+.app {
+    background-image: url(../imgs/abstrato-branco-cinza-degrade-cor-de-fundo_125759-204.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+.background-row {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.089);
+    text-align: center;
+}
+
+.background-row.show {
+    display: block;
+}
+
+
+.background-row .row-count {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: white;
+    color: #444;
+    padding: 20px;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.137); 
+    text-align: left;
+}
+
+.background-row .row-count input {
+    border: none;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    font-size: 1rem;
+    outline-style: none;
+    padding-left: 10px;
+    width: 100px;
+}
+
+.wrapper-spreadsheet {
+    width: 100%;
+    overflow-x: auto;
+    margin-left: -40px;
+    padding-left: 40px;
+}
+
+.spreadsheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px;
+    color: rgb(51, 51, 51);
+}
+
+.spreadsheet-header input {
+    border: none;
+    outline-style: none;
+    display: inline-block;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3px;
+    font-size: 1rem;
+    color: rgb(51, 51, 51);
+}
+
+.spreadsheet-header i {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.spreadsheet-header .options {
+    padding: 5px 10px;
+    color: #BF1B47;
+    border-radius: 100%;
+}
+
+.spreadsheet-header .options:hover {
+    background-color: #eee;
+}
+
+.popup-background {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    background-color: transparent;
+}
+
+.popup-options {  
+    position: absolute;
+    right: 70px;
+    top: 165px;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    border-top: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.137); 
+}   
+
+.popup-background.show {
+    display: block;
+}
+
+.popup-item {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    cursor: pointer;
+}
+
+.popup-item:hover {
+    background-color: #f9f9f9;
+}
+
+.popup-item a {
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+}
+
+.field-search {
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    padding: 8px;
+    margin-right: 10px;
+    outline-style: none;
+}
+
+.field-search:focus {
+    border-color: #bbb;
+}
+
+.field-search::placeholder {
+    color: #bbb;
+}
+
+.spreadsheet {
+    display: none;
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.spreadsheet.show {
+    display: block;
+}
+
+.row {
+    position: relative;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid white;
+}
+
+.row.header {
+    color: white;
+}
+
+.row:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+.row.selected {
+    background-color: #ffffb5;
+}
+
+.column {
+    text-align: center;
+    white-space: nowrap;
+    border-left: 1px solid #ddd;
+}
+
+.column input {
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+    color: rgb(30, 30, 30);
+    text-align: center;
+    outline-style: none;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.column input:focus {
+    background-color: #f3f3f3;
+}
+
+.column.header {
+    background-color: #555;
+    border-left: 1px solid #fff;
+}
+
+.column:last-child {
+    border-right: 1px solid #ddd;
+}
+
+.number-wrapper {
+    position: relative;
+}
+
+.number-wrapper .number {
+    position: absolute;
+    top: 10px;
+    left: -25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.mns-background {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.11);
+}
+
+.mns-background.show {
+    display: flex;
+}
+
+.modal-new-spreadsheet {
+    background-color: white;
+    min-width: 500px;
+    max-width: 800px;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.212);
+}
+
+.mns-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.mns-header h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.mns-header .fa {
+    font-size: 0.9rem;
+    color: #777;
+    cursor: pointer;
+}
+
+.mns-header .fa:hover {
+    color: rgb(230, 137, 137);
+}
+
+.mns-content {
+    padding: 20px;
+}
+
+.mns-content label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.mns-content .field {
+    display: inline-flex;
+    border: 1px solid #5244a9;
+    margin: 10px;
+    margin-left: 0;
+}
+
+.mns-content .field input {
+    border: none;
+    padding: 8px;
+    color: currentColor;
+}
+
+.mns-content .field .fa {
+    border-left: 1px solid #5244a9;
+    color: #777;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.mns-content .field .fa:hover {
+    color: rgb(230, 137, 137);
+}
+
+.mns-content .btn-plus {
+    padding: 8px 10px;
+    background-color: #5244a9;;
+    color: white;
+}
+
+.mns-footer {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #f2f2f2;
+}
+
+.wrapper-link {
+    display: none;
+    margin-top: 20px;
+}
+
+.wrapper-link.show {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    justify-content: space-between;
+}
+
+.wrapper-link .link {
+    color: #436bc3;
+    font-size: 1rem;
+}
+
+.wrapper-link .copy {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid currentColor;
+    color: #666;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.link-copied {
+    position: absolute;
+    top: 240px;
+    right: 40px;
+    background-color: rgb(70, 156, 70);
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+}
+
+.wrapper-link p {
+    margin: 0;
+}
+
+.wrapper-link .copy:hover {
+    color: currentColor;
+}
