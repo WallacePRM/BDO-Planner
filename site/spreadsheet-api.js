@@ -29,7 +29,7 @@ function getSpreadsheet(id) {
     return fetchJson(urlBase + '/' + id);
 }
 
-function updateSpeadsheet(id, spreadsheet) {
+function updateSpreadsheet(id, spreadsheet) {
     
     fetchJson(urlBase + '/' + id, {
         method: 'PUT',
@@ -49,4 +49,16 @@ function CreatingRows(id, rows) {
         },
         body: JSON.stringify(rows)
     });
+}
+
+function updateSpreadsheetColumns(id, spreadsheet) {
+
+    return fetchJson(urlBase + '/' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(spreadsheet)
+    });
+
 }

@@ -39,6 +39,20 @@ function hiddenModal() {
     $('.mns-background').removeClass('show');
 }
 
+/*
+    spreadsheet = {
+        title: string,
+        id: string,
+        rows: [{
+            id: string,
+            data: {
+                columnName: string
+            }
+        }],
+        columns: [string]
+    };
+*/
+
 function showSpreadsheet(spreadsheet) {
 
     $('.spreadsheet').attr('data-id', spreadsheet.id);
@@ -60,14 +74,14 @@ function showSpreadsheet(spreadsheet) {
                     <div class="number-wrapper">
                         <span class="number"> ${i + 1} </span>
                     </div>
-                    <input onChange="handleColumnChange(event)" value="${spreadsheet.rows[i].data[columnName]}"/>
+                    <input onChange="handleColumnChange(event)" value="${spreadsheet.rows[i].data[columnName] || ''}"/>
                 </td>               
             </tr>
         `);
 
         for (var c = 1; c < spreadsheet.columns.length; c++) {
             var columnName = spreadsheet.columns[c];
-            $row.append(`<td class="column"><input onChange="handleColumnChange(event)" value="${spreadsheet.rows[i].data[columnName]}"/></td>`);
+            $row.append(`<td class="column"><input onChange="handleColumnChange(event)" value="${spreadsheet.rows[i].data[columnName] || ''}"/></td>`);
         }
                
         $('.spreadsheet tbody').append($row);
@@ -137,6 +151,21 @@ function showLinkCopied() {
     }
 }
 
+function getColumnsName() {
+
+    // Obter os nomes da coluna
+    var columnName = [];
+    var columns = $('.spreadsheet .column.header span').toArray();
+
+    for (var i = 0; i < columns.length; i++) {
+        columnName.push($(columns[i]).html());
+    }
+
+    return columnName;
+}
+
+/* ========== Handles ========== */
+
 function handleShowBackgroundRow() {
 
    // $('.background-row').toggleClass('show');
@@ -149,8 +178,6 @@ function handleShowBackgroundRow() {
        $backgroundRow.fadeIn();
    }
 }
-
-/* ========== Handles ========== */
 
 function handleNewColumn() {
 
@@ -265,7 +292,7 @@ function handleChangeNameGuild() {
         title: $('[name="nameGuild"]').val()
     };
 
-    updateSpeadsheet(id, spreadsheet);
+    updateSpreadsheet(id, spreadsheet);
 }
 
 function handleCopyLink() {
@@ -322,13 +349,9 @@ function handleCreateRows() {
         rowCount = 0;
     }
 
-    var columns = $('.column.header span').toArray();
-    var columnsName = [];
-
-    for (var i = 0; i < columns.length; i++) {
-        columnsName.push($(columns[i]).html()); 
-    }
-
+    var columnsName = getColumnsName();
+    
+    
     var rows = [];
 
     for (var i = 0; i < rowCount; i++) {
@@ -388,12 +411,79 @@ function handleCreateRows() {
 
     // Fim load
 
-    promise.cath(function(error) {
+    promise.catch(function(error) {
         $btnConfirm.html('Confirmar');
         $btnConfirm.attr('disabled', null);
 
         alert(error);
     });
+}
+
+function handleShowUpdateColumns() {
+       
+    var $modal = $('.mns-background').clone();
+    $modal.addClass('updated-columns');
+    $modal.find('h2').html('Alterar colunas');
+
+    var columnsName = getColumnsName()
+
+    // Criar os inputs de acordo com a quantidade de nomes
+    $modal.find('.field').remove();
+
+    // Adicionar novas colunas no modal
+    for (var i = 0; i < columnsName.length; i++) {
+        $modal.find('.content-fields').prepend(`
+        <div class="field">
+            <input name="columnName" type="text" placeholder="Nome da coluna" value="${columnsName[i]}">
+            <i onclick="handleRemoveColumn(event)" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        `);
+    }
+
+    $modal.find('[name="btnConfirm"]').attr('onclick', 'handleUpdateColumns()');
+
+    // Exibir o modal(clone)
+    $('body').append($modal.addClass('show'));
+
+}
+
+function handleUpdateColumns() {
+    
+    var columnsName = [];
+
+    // obter Id da planilha
+    var id = getSpreadsheetId();
+
+    // Obter valores dos inputs
+    var inputs = $('.mns-background.updated-columns').find('input').toArray();
+
+    for (var i = 0; i < inputs.length; i++) {
+        columnsName.push($(inputs[i]).val());
+    }
+    // Criar objeto com os valores obtidos
+    var spreadsheet = {
+        columns: columnsName
+    };
+
+    // Fazer requisicao PUT
+    var promise = updateSpreadsheetColumns(id, spreadsheet);
+
+    // Recriar planilha com os novos valores
+    $('.spreadsheet').html(`
+        <thead>
+            <tr class="row header"></tr>
+        </thead>
+        <tbody></tbody>
+    `);
+
+    promise.then(function () {
+
+        promise = getSpreadsheet(id);
+        promise.then(showSpreadsheet);
+
+        $('.mns-background.updated-columns').remove();
+    });
+
 }
 
 /* ========== Initial ========== */
