@@ -6,6 +6,7 @@ html {
 }
 
 body {
+    position: relative;
     margin: 0;
     background-color: #F2F2F2;
     color: #333;
@@ -90,7 +91,27 @@ button.btn.btn-primary[disabled] {
     right: 13px;
 }
 
+.message-block {
+    display: none;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    left: 60px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.212);
+}
 
+.message-block span {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.message-block i {
+    margin-left: 20px;
+}
 
 .mb-0 {
     margin-bottom: 10px;

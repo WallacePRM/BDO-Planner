@@ -162,6 +162,14 @@
     border-right: 1px solid white;
 }
 
+.row:not(.disabled):hover .number {
+    display: none;
+}
+
+.row:not(.disabled):hover .row-link {
+    display: inline;
+}
+
 .row.header {
     color: white;
 }
@@ -172,6 +180,15 @@
 
 .row.selected {
     background-color: #ffffb5;
+}
+
+.row.disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+}
+
+.row.disabled input {
+    cursor: not-allowed;
 }
 
 .column {
@@ -215,6 +232,18 @@
     font-weight: bold;
     font-size: 0.9rem;
     color: #999;
+}
+
+.number-wrapper .row-link {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: -35px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-right: 50px;
+    margin: 4px;
+    cursor: pointer;
 }
 
 .mns-background {
@@ -346,6 +375,7 @@
     border-radius: 100%;
     height: 25px;
     width: 25px;
+    min-width: 25px;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -370,3 +400,4 @@
 .wrapper-link .copy:hover {
     color: currentColor;
 }
+

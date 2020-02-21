@@ -29,14 +29,29 @@ function loadSpreadsheet() {
 
             $('.wrapper-link .link').html(window.location.href);
             $('.wrapper-link').addClass('show'); 
+
+            blockEditRows();
         });  
     }
 
 }
 
-function hiddenModal() {
+function blockEditRows() {
 
-    $('.mns-background').removeClass('show');
+    var parameters = window.location.search;
+    var urlParameters =  new URLSearchParams(parameters);
+    var rowId = urlParameters.get('rowid');
+    var rows = $('.spreadsheet tbody .row').toArray();
+
+    if (rowId !== null) {
+        for (var i = 0; i < rows.length; i++) {
+
+            if (rowId !== $(rows[i]).attr('data-id')) {
+                $(rows[i]).find('input').attr('disabled', 'disabled');
+                $(rows[i]).addClass('disabled');
+            } 
+        }
+    }
 }
 
 /*
@@ -68,11 +83,12 @@ function showSpreadsheet(spreadsheet) {
     for (var i = 0; i < spreadsheet.rows.length; i++) {
 
         var columnName = spreadsheet.columns[0];
-       var $row = $(`
+        var $row = $(`
             <tr class="row" data-id="${spreadsheet.rows[i].id}">                           
                 <td class="column">
                     <div class="number-wrapper">
                         <span class="number"> ${i + 1} </span>
+                        <i onclick="handleCopyRowLink(event)" class="fas fa-link row-link"></i>
                     </div>
                     <input onChange="handleColumnChange(event)" value="${spreadsheet.rows[i].data[columnName] || ''}"/>
                 </td>               
@@ -98,6 +114,14 @@ function generateLink(id) {
     return link;
 }
 
+function generateRowLink(id, rowId) {
+
+    var link = generateLink(id);
+    link = link + '&rowid=' + rowId;
+
+    return link;
+}
+
 function getSpreadsheetId() {
 
     var spreadsheetId = $('.spreadsheet').attr('data-id');
@@ -115,40 +139,9 @@ function copyTextToClipboard(text) {
 }
 
 function showLinkCopied() {
-    
-    var step = 33.33;
-    var time = step;
-    var value = 0.033;
-    var $linkCopied =  $('.link-copied');
-    $linkCopied.css('display', 'block');
-    
-    while (time <= 1000) {
-        
-        setTimeout(function(v) {
+    var text = 'Copiado!';
 
-            $linkCopied.css('opacity', `${v}`);  
-        }.bind(null, value), time);
-
-        time = time + step;
-        value = value + 0.033;  
-    }
-
-    time = time + 1000;
-    value = 0.9;
-
-    while (time <= 3000) {
-        
-        setTimeout(function(v) {
-
-            $linkCopied.css('opacity', `${v}`);  
-            if (v < 0) {
-                $linkCopied.css('display', 'none');
-            }
-        }.bind(null, value), time);
-
-        time = time + step;  
-        value = value - 0.033;           
-    }
+    showMessageBlock(text);
 }
 
 function getColumnsName() {
@@ -162,6 +155,16 @@ function getColumnsName() {
     }
 
     return columnName;
+}
+
+function showMessageBlock(text) {
+
+    $('.message-block span').html(text);
+    $('.message-block').fadeIn();
+
+    setTimeout(function() {
+        $('.message-block').fadeOut();
+    }, 5000);
 }
 
 /* ========== Handles ========== */
@@ -223,6 +226,7 @@ function handleCreateSpreadsheet() {
     }
 
     var spreadsheet = {
+        title: '',
         columns: columnName,
         rows: rows
     };
@@ -424,6 +428,9 @@ function handleShowUpdateColumns() {
     var $modal = $('.mns-background').clone();
     $modal.addClass('updated-columns');
     $modal.find('h2').html('Alterar colunas');
+    $modal.find('.mns-header').append(`
+        <i onclick="handleHiddenModal()" class="fa fa-times"></i>
+    `);
 
     var columnsName = getColumnsName()
 
@@ -431,7 +438,7 @@ function handleShowUpdateColumns() {
     $modal.find('.field').remove();
 
     // Adicionar novas colunas no modal
-    for (var i = 0; i < columnsName.length; i++) {
+    for (var i = columnsName.length - 1; i >= 0; i--) {
         $modal.find('.content-fields').prepend(`
         <div class="field">
             <input name="columnName" type="text" placeholder="Nome da coluna" value="${columnsName[i]}">
@@ -445,6 +452,11 @@ function handleShowUpdateColumns() {
     // Exibir o modal(clone)
     $('body').append($modal.addClass('show'));
 
+}
+
+function handleHiddenModal() {
+
+    $('.mns-background.updated-columns').remove();
 }
 
 function handleUpdateColumns() {
@@ -486,11 +498,24 @@ function handleUpdateColumns() {
 
 }
 
+function handleCopyRowLink(event) {
+
+    var id = getSpreadsheetId();
+    var $row = $(event.currentTarget).closest('.row');
+    var rowId = $row.attr('data-id');
+    var link = generateRowLink(id, rowId);
+    
+    var text = 'Link copiado!';
+
+    copyTextToClipboard(link);
+    showMessageBlock(text);
+}
+
 /* ========== Initial ========== */
 
 $(document).ready(function() {
 
     enableNewSpreadsheet();
-    loadSpreadsheet();
+    loadSpreadsheet(); 
 });
 
