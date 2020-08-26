@@ -45,7 +45,7 @@
                         <span>Link da Planilha:</span>
                         <span class="link"></span>
                     </p>
-                    <span onclick="showLinkCopied()" class="copy">
+                    <span onclick="handleCopyLink()" class="copy">
                         <i title="Copiar link" class="fas fa-copy" aria-hidden="true"></i>
                     </span>
                     <div class="link-copied">
@@ -122,6 +122,11 @@
                     <button onclick="handleCreateSpreadsheet()" name="btnConfirm" class="btn btn-primary">Confirmar</button>
                 </div>  
             </div>
+        </div>
+
+        <div class="background-load">
+            <img class="black-spirit" src="../imgs/blackspirit.png">
+            <img class="eclipse" src="../imgs/loading.svg">
         </div>
 
         <script src="../fetch-utils.js"></script>

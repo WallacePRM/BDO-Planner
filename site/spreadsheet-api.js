@@ -1,5 +1,6 @@
 
-var urlBase = 'https://appnetcore01.azurewebsites.net/api/spreadsheets';
+var urlBase = 'https://bdoguildmanager.azurewebsites.net/api/spreadsheets';
+
 
 function saveSpreadsheet(spreadsheet) {
     
@@ -14,7 +15,7 @@ function saveSpreadsheet(spreadsheet) {
 
 function updateRow(spreadsheetId, rowId, rowData) {
 
-    fetch(urlBase + '/' + spreadsheetId + '/rows/' + rowId, {
+    fetchJson(urlBase + '/' + spreadsheetId + '/rows/' + rowId, {
 
         method: 'PUT',
         headers: {

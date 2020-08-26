@@ -81,6 +81,7 @@
     font-size: 1rem;
     padding: 10px 20px;
     border: none;
+    border-radius: 3px;
     background-color: rgb(23, 161, 23);
     color: white;
     cursor: pointer;
@@ -94,7 +95,7 @@
 .cw-right .btn-success i {
     margin: 0;
     margin-left: 10px;
-    color: #eee;
+    color: white;
 }
 
 /* ------------- SITE PART 3 ------------- */

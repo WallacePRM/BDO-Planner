@@ -18,6 +18,8 @@ function loadSpreadsheet() {
     
     if (id !== null) {
 
+        loading(true);
+
         // Enviar uma requisicao pedindo os dados da planilha
         var promise = getSpreadsheet(id);
 
@@ -31,6 +33,8 @@ function loadSpreadsheet() {
             $('.wrapper-link').addClass('show'); 
 
             blockEditRows();
+
+            loading(false);
         });  
     }
 
@@ -165,6 +169,17 @@ function showMessageBlock(text) {
     setTimeout(function() {
         $('.message-block').fadeOut();
     }, 5000);
+}
+
+function loading(show) {
+
+    if (show) {
+
+        $('.background-load').addClass('show');
+    }
+    else {
+        $('.background-load').removeClass('show');
+    }
 }
 
 /* ========== Handles ========== */
