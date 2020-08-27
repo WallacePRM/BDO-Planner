@@ -352,6 +352,7 @@ function handleSearchText() {
 function handleShowOptions() {
 
     $('.popup-background').toggleClass('show');
+    $('.spreadsheet-header .options').toggleClass('active');
 }
 
 function handleCreateRows() {

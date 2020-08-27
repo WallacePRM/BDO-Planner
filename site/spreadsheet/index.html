@@ -9,16 +9,22 @@
         <link rel="stylesheet" href="../template.css">
         <link rel="stylesheet" href="index.css">
         <script src="../jquery-3.4.1.min.js"></script>
-        <title>BDO Planilha</title>
+        <title>v2Manager</title>
     </head>
     <body>
         <div class="app">
             <div class="app-header">
                 <div class="header-left">
-                    <img src="../imgs/logo.png">
-                    <a class="logo-name left" title="Ir para a página inicial" href="../index.html">BDO Planilha</a> 
+                    <a class="logo-name left" title="Ir para a página inicial" href="../index.html">v2Manager</a> 
                 </div>
-                <div class="header-right"></div>
+                <div class="header-right">
+                    <i class="fa fa-globe-americas"></i>
+                    <select>
+                        <option>Português (BR)</option>
+                        <option>English (US)</option>
+                        <option>Espanhol</option>
+                    </select>
+                </div>
             </div>
             <div class="app-content">
                 <div class="spreadsheet-header">
@@ -28,14 +34,14 @@
                     <div>
                         <input onkeyup="handleSearchText()" class="field-search" type="text" placeholder="Pesquisar">
                         <!--<i class="fas fa-share-alt" title="Compartilhar planilha"></i>-->
-                        <i onclick="handleShowOptions()" class="fas fa-ellipsis-v options" title="Opções"></i>
+                        <i onclick="handleShowOptions()" class="fas fa-cog options" title="Opções"></i>
                      </div>
 
                      <div onclick="handleShowOptions()" class="popup-background">
                         <div class="popup-options">
-                            <div class="popup-item"><a target="__blank" href="../spreadsheet/index.html?newspreadsheet"><i class="fa fa-table"></i>Nova planilha</a></div>
-                            <div onclick="handleShowUpdateColumns()" class="popup-item"><i class="fa fa-edit"></i>Alterar coluna</div>
-                            <div onclick="handleShowBackgroundRow()" class="popup-item"><i class="fa fa-plus"></i>Adicionar linhas</div>                        
+                            <div class="popup-item"><a target="__blank" href="../spreadsheet/index.html?newspreadsheet">Nova planilha</a></div>
+                            <div onclick="handleShowUpdateColumns()" class="popup-item">Alterar coluna</div>
+                            <div onclick="handleShowBackgroundRow()" class="popup-item">Adicionar linhas</div>                        
                         </div>
                     </div>
                 
@@ -73,7 +79,7 @@
 
         <div onclick="handleShowBackgroundRow()" class="background-row">
             <div onclick="event.stopPropagation()" class="row-count">
-                <div class="mb-0">
+                <div class="row-count-content">
                     <span>Número de linhas adicionais: </span>
                     <input name="rowCount" type="number">
                 </div>
@@ -84,18 +90,18 @@
         <div class="mns-background">
             <div class="modal-new-spreadsheet">
                 <div class="mns-header">
-                    <h2>Crie sua planilha</h2>
+                    <h2>Criação de planilha</h2>
                     <!--<i onclick="hiddenModal()" class="fa fa-times"></i>-->
                 </div>
                 <div class="mns-content">
                     <label>Colunas</label>
                     <div class="content-fields">
                         <div class="field">
-                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Familia">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Classe">
                             <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
                         </div>
                         <div class="field">
-                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Personagem">
+                            <input name="columnName" type="text" placeholder="Nome da coluna" value="Família">
                             <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
                         </div>
                         <div class="field">
@@ -125,8 +131,7 @@
         </div>
 
         <div class="background-load">
-            <img class="black-spirit" src="../imgs/blackspirit.png">
-            <img class="eclipse" src="../imgs/loading.svg">
+            <img src="../imgs/loading.svg">
         </div>
 
         <script src="../fetch-utils.js"></script>

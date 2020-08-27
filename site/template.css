@@ -23,6 +23,7 @@ body {
     background-color: rgb(30, 30, 30);
     color: rgb(238, 236, 236);
     padding: 0 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.425);
 }
 
 .app-header .header-left {
@@ -30,29 +31,18 @@ body {
     align-items: center;
 }
 
-.app-header img {
-    height: 70px;
-    margin: 10px 20px;
-    margin-right: 0;
-    border-top: 1px solid #aaa;
-    border-right: 1px solid #aaa;
-    border-radius: 10px;
-}
-
 .app-header a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     outline-style: none;
     text-decoration: none;
     cursor: pointer;
     color: #eee;
     text-transform: uppercase;
-    border-bottom: 1px solid #aaa;
-    border-radius: 2px;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 .app-header a:hover {
-    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.425);
 }
 
 .app-content {
@@ -61,8 +51,9 @@ body {
 
 .btn {
     border: none;
+    border-radius: 3px;
     font-size: 1rem;
-    padding: 10px 13px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
@@ -126,22 +117,18 @@ button.btn.btn-primary[disabled] {
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.13);
+    background-color: rgba(0, 0, 0, 0.24);
 }
 
 .background-load.show {
     display: flex;
 }
 
-.background-load .black-spirit {
+.background-load img {
     position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
     height: 80px;
     opacity: 0.8;
-}
-
-.background-load .eclipse {
-    height: 150px;
 }
