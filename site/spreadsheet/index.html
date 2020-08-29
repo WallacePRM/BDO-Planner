@@ -5,9 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://kit.fontawesome.com/1b79c4b552.js" crossorigin="anonymous"></script>
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">-->
-        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../template.css">
         <link rel="stylesheet" href="index.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <script src="../jquery-3.4.1.min.js"></script>
         <title>v2Manager</title>
     </head>
@@ -18,12 +20,7 @@
                     <a class="logo-name left" title="Ir para a página inicial" href="../index.html">v2Manager</a> 
                 </div>
                 <div class="header-right">
-                    <i class="fa fa-globe-americas"></i>
-                    <select>
-                        <option>Português (BR)</option>
-                        <option>English (US)</option>
-                        <option>Espanhol</option>
-                    </select>
+                   
                 </div>
             </div>
             <div class="app-content">
@@ -34,14 +31,36 @@
                     <div>
                         <input onkeyup="handleSearchText()" class="field-search" type="text" placeholder="Pesquisar">
                         <!--<i class="fas fa-share-alt" title="Compartilhar planilha"></i>-->
-                        <i onclick="handleShowOptions()" class="fas fa-cog options" title="Opções"></i>
+                        <i onclick="handleShowOptions(event)" class="fas fa-cog options" title="Opções"></i>
                      </div>
 
-                     <div onclick="handleShowOptions()" class="popup-background">
+                     <div onclick="handleHiddenOptions(event)" class="popup-background">
                         <div class="popup-options">
-                            <div class="popup-item"><a target="__blank" href="../spreadsheet/index.html?newspreadsheet">Nova planilha</a></div>
-                            <div onclick="handleShowUpdateColumns()" class="popup-item">Alterar coluna</div>
-                            <div onclick="handleShowBackgroundRow()" class="popup-item">Adicionar linhas</div>                        
+                            <div class="popup-menu" onclick="togglePopupMenu(event)">
+                                <span>Editar planilha</span>
+                                <div class="popup-item">
+                                    <a onclick="hiddenOptions()" target="__blank" href="../spreadsheet/index.html?newspreadsheet">Nova planilha</a>
+                                </div>
+                                <div onclick="handleShowUpdateColumns()" class="popup-item">
+                                    <span>Alterar coluna</span>
+                                </div>
+                                <div onclick="handleShowBackgroundRow()" class="popup-item">
+                                    <span>Adicionar linhas</span>
+                                </div>  
+                            </div>   
+                            <div class="popup-menu active" onclick="togglePopupMenu(event)">
+                                <span>Sites Úteis</span>
+                                <div class="popup-item">
+                                    <a onclick="hiddenOptions()" target="__blank" href="https://bdoplanner.com/">BDO Planner</a>
+                                </div>
+                                <div class="popup-item">
+                                    <a onclick="hiddenOptions()" target="__blank" href="https://inextzbgd.github.io/CalcularPrecoBDO/">BDO Market</a>
+                                </div>
+                                <div class="popup-item">
+                                    <a onclick="hiddenOptions()" target="__blank" href="https://grumpygreen.cricket/bdo-ap-brackets/">AP/DP Cap</a>
+                                </div>
+                                
+                            </div>      
                         </div>
                     </div>
                 
@@ -132,6 +151,14 @@
 
         <div class="background-load">
             <img src="../imgs/loading.svg">
+        </div>
+
+        <div class="background-welcome">
+            <div class="welcome">
+                <h2>Obrigado por usar o V2Manager</h2>
+                <p>Após finalizar a criação, lembre-se: um link será gerado para acessar a sua planilha, não o perca.</p>
+                <button onclick="handleHiddenWelcome()" class="btn btn-primary">Continuar</button>
+            </div>
         </div>
 
         <script src="../fetch-utils.js"></script>

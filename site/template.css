@@ -1,7 +1,8 @@
 
 html {
     /*font-family: 'Nunito', sans-serif;*/
-    font-family: 'PT Sans', sans-serif;
+    /*font-family: 'PT Sans', sans-serif;*/
+    font-family: 'Baloo Tamma 2', cursive;
     font-size: 18px;
 }
 
@@ -11,6 +12,23 @@ body {
     background-color: #F2F2F2;
     color: #333;
 }
+
+/* -------------- Global CSS ------------- */
+
+input {
+    outline-style: none;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+/* -------------- APP ------------- */
 
 .app {
     width: 100%;
@@ -60,6 +78,7 @@ body {
 .btn-primary {
     background-color: #5244a9;
     color: white;
+    outline-style: none;
 } 
 
 .btn-primary:hover {

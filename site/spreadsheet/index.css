@@ -2,15 +2,13 @@
 
 .app {
     background-color: #eee;
+    font-family: 'Baloo Tamma 2', cursive;
 }
 
-/* -------------------- CSS Global -------------------- */
-
-input {
-    outline-style: none;
-}
 
 /* -------------------- Background -------------------- */
+
+/* -------- Background Row --------- */
 
 .background-row {
     display: none;
@@ -54,8 +52,46 @@ input {
     padding: 3px 10px;
 }
 
+/* -------- Background Welcome --------- */
+
+.background-welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.336);    
+}
+
+.background-welcome.show {
+    display: flex;
+}
+.welcome {
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288); 
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 20px;
+    color: #ccc;
+}
+
+.welcome h2 {
+    font-size: 1.3rem;
+    cursor: default;
+}
+
+.welcome p {
+    margin-bottom: 20px;
+    cursor: default;
+
+}
+
 /* -------------------- App -------------------- */
 
+/*
 .header-right {
     display: flex;
     align-items: center;
@@ -88,7 +124,6 @@ input {
 
 .wrapper-spreadsheet {
     width: 100%;
-    overflow-x: auto;
     margin-left: -40px;
     padding-left: 40px;
 }
@@ -111,6 +146,10 @@ input {
     padding-bottom: 3px;
     font-size: 0.9rem;
     color: rgb(51, 51, 51);
+}
+
+.spreadsheet-header [name="nameGuild"] {
+    font-size: 1rem;
 }
 
 .spreadsheet-header .options {
@@ -144,7 +183,7 @@ input {
     top: 150px;
     background-color: #333;
     border-radius: 3px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.137); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26); 
     color: #eee;
     padding-bottom: 1px;
 }   
@@ -153,20 +192,43 @@ input {
     display: block;
 }
 
-.popup-item {
-    padding: 5px 10px;
+.popup-menu {
+    padding: 4px 20px;
     border-bottom: 1px solid #444;
-    cursor: pointer;
-    text-align: center;
+    text-align: left;
     font-size: 0.9rem;
+    cursor: default;
+    max-height: 24px;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
 }
 
-.popup-item:hover {
+.popup-menu.active {
+    max-height: 100vh;
+    overflow: visible;
+}
+.popup-menu:hover {
     background-color: #2c2c2c;
 }
 
-.popup-item a {
+.popup-menu a {
     text-decoration: none;
+    color: #bbb;
+}
+
+.popup-menu a:hover {
+    color: #eee;
+}
+
+.popup-item {
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding-left: 5px;
+    color: #bbb;
+    overflow: hidden;
+}
+
+.popup-item:hover {
     color: #eee;
 }
 
@@ -241,13 +303,13 @@ input {
 
 .column input {
     border: none;
-    font-size: 1rem;
+    font-size: 0.8rem;
     background-color: transparent;
     color: rgb(30, 30, 30);
     text-align: center;
     outline-style: none;
     width: 100%;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .column input:focus {
@@ -270,23 +332,24 @@ input {
 
 .number-wrapper .number {
     position: absolute;
-    top: 10px;
+    top: 2px;
     left: -35px;
     font-weight: bold;
     font-size: 0.9rem;
     color: #999;
+    cursor: default;
 }
 
 .number-wrapper .row-link {
     display: none;
     position: absolute;
-    top: 10px;
-    left: -35px;
+    top: 2px;
+    left: -42px;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding-right: 50px;
+    font-size: 1rem;
     margin: 4px;
     cursor: pointer;
+    padding-right: 20px;
 }
 
 .mns-background {

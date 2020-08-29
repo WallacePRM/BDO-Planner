@@ -5,7 +5,7 @@ function enableNewSpreadsheet() {
 
     if (window.location.search === '?newspreadsheet') {
         
-        $('.mns-background').addClass('show');
+        $('.background-welcome').addClass('show');
     }
 }
 
@@ -182,9 +182,33 @@ function loading(show) {
     }
 }
 
+function togglePopupMenu(event) {
+
+    var element = event.currentTarget;
+    var elementAttr = $(element).attr('class');
+
+    if (elementAttr === 'popup-menu') {
+
+        $('.popup-menu').removeClass('active');
+        $(element).addClass('active');
+    }
+    else {
+
+        $(element).removeClass('active');
+    }
+}
+
+function hiddenOptions() {
+
+    $('.popup-background').removeClass('show');
+    $('.spreadsheet-header .options').removeClass('active');
+}
+
 /* ========== Handles ========== */
 
 function handleShowBackgroundRow() {
+
+    hiddenOptions();
 
    // $('.background-row').toggleClass('show');
    var $backgroundRow = $('.background-row');
@@ -351,8 +375,21 @@ function handleSearchText() {
 
 function handleShowOptions() {
 
-    $('.popup-background').toggleClass('show');
-    $('.spreadsheet-header .options').toggleClass('active');
+    $('.popup-background').addClass('show');
+    $('.spreadsheet-header .options').addClass('active');
+}
+
+function handleHiddenOptions(event) {
+
+    var element = event.target;
+    var elementAttr = $(element).attr('class');
+    
+    if (elementAttr === 'popup-background show') {
+
+        $('.popup-background').removeClass('show');
+        $('.spreadsheet-header .options').removeClass('active');
+    }
+    
 }
 
 function handleCreateRows() {
@@ -401,6 +438,7 @@ function handleCreateRows() {
                     <td class="column">
                         <div class="number-wrapper">
                             <span class="number"> ${i + numberLine} </span>
+                            <i onclick="handleCopyRowLink(event)" class="fas fa-link row-link"></i>
                         </div>
                         <input onChange="handleColumnChange(event)" value="${rows[i].data[name]}"/>
                     </td>               
@@ -441,6 +479,8 @@ function handleCreateRows() {
 
 function handleShowUpdateColumns() {
        
+    hiddenOptions();
+
     var $modal = $('.mns-background').clone();
     $modal.addClass('updated-columns');
     $modal.find('h2').html('Alterar colunas');
@@ -467,7 +507,6 @@ function handleShowUpdateColumns() {
 
     // Exibir o modal(clone)
     $('body').append($modal.addClass('show'));
-
 }
 
 function handleHiddenModal() {
@@ -525,6 +564,12 @@ function handleCopyRowLink(event) {
 
     copyTextToClipboard(link);
     showMessageBlock(text);
+}
+
+function handleHiddenWelcome() {
+
+    $('.background-welcome').removeClass('show');
+    $('.mns-background').addClass('show');
 }
 
 /* ========== Initial ========== */

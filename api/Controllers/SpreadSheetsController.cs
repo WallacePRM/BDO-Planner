@@ -90,7 +90,7 @@ namespace SpreadSheetApi.Controllers
             {
                 Id = Guid.NewGuid().ToString(),
                 Data = row,
-            });
+            }).ToList();
 
             await _spreadSheetRepo.InsertRow(id, spreadSheetRows);
 

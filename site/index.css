@@ -1,5 +1,6 @@
 
 .app {
+    font-family: 'Baloo Tamma 2', cursive;
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(imgs/Black\ Desert\ 3.png);
@@ -45,24 +46,30 @@
 /* ------------- SITE PART 2 ------------- */
 
 .app-content {
+    position: relative;
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     margin: 0;
     color: #eee;
     padding: 40px;
 }
 
+.content-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 100px;
+}
+
 .app-content h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-shadow: 1px 1px rgb(0, 0, 0);
 }
 
 .app-content p {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     max-width: 600px;
     text-align: justify;
     text-shadow: 1px 1px rgb(0, 0, 0);
@@ -71,7 +78,7 @@
 
 .app-content .btn-success {
     font-size: 0.9rem;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border: none;
     border-radius: 3px;
     background-color: rgb(23, 161, 23);
