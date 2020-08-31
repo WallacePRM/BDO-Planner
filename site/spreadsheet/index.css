@@ -452,6 +452,11 @@
     border-top: 1px solid #f2f2f2;
 }
 
+.alert-error {
+    color: #c44646;
+    margin-bottom: 20px;
+}
+
 .wrapper-link {
     display: none;
     margin-top: 20px;
@@ -509,3 +514,6 @@
     color: currentColor;
 }
 
+.error {
+    border-color: #cc3535 !important;
+}

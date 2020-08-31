@@ -241,13 +241,30 @@ function handleRemoveColumn(event) {
 function handleCreateSpreadsheet() {
     
     var columnName = [];
-    
+
     // Pegar valores das colunas
     var fields = $('.mns-background [name="columnName"]').toArray();
 
+    $('.mns-background .field').removeClass('error');
+    $('.mns-footer .alert-error').css('display', 'none');
+
     for (var i = 0; i < fields.length; i++) {
-        
-        columnName.push($(fields[i]).val());
+    
+        var fieldValue = $(fields[i]).val();
+        var index = columnName.indexOf(fieldValue)
+
+        if (index === -1) {
+
+            columnName.push(fieldValue);
+        }
+        else {
+            
+            var $field = $(fields[index]).closest('.field');
+            $field.addClass('error');
+            $('.mns-footer .alert-error').css('display', '');
+            
+            return;
+        }
     }
     
     var rows = [];
