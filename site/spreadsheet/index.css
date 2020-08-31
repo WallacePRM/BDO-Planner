@@ -1,94 +1,11 @@
 
 
+/* -------------------- App -------------------- */
+
 .app {
     background-color: #eee;
     font-family: 'Baloo Tamma 2', cursive;
 }
-
-/* -------------------- Background -------------------- */
-
-/* -------- Background Row --------- */
-
-.background-row {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.089);
-    text-align: center;
-}
-
-.background-row.show {
-    display: block;
-}
-
-.background-row .row-count {
-    margin-top: 20px;
-    display: inline-block;
-    background-color: white;
-    color: #444;
-    padding: 20px;
-    font-size: 1rem;
-    border-radius: 3px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.137); 
-    text-align: left;
-}
-
-.background-row .row-count-content {
-    margin-bottom: 10px;
-}
-.background-row .row-count input {
-    margin-left: 10px;
-    border: none;
-    border: 1px solid #aaa;
-    border-radius: 3px;
-    font-size: 0.9rem;
-    outline-style: none;
-    width: 100px;
-    padding: 3px 10px;
-}
-
-/* -------- Background Welcome --------- */
-
-.background-welcome {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.336);    
-}
-
-.background-welcome.show {
-    display: flex;
-}
-
-.welcome {
-    background-color: #222;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288); 
-    border: 1px solid #bbb;
-    border-radius: 3px;
-    padding: 20px;
-    color: #ccc;
-}
-
-.welcome h2 {
-    font-size: 1.3rem;
-    cursor: default;
-}
-
-.welcome p {
-    margin-bottom: 20px;
-    cursor: default;
-
-}
-
-/* -------------------- App -------------------- */
 
 /*
 .header-right {
@@ -163,72 +80,6 @@
 }
 .spreadsheet-header .options:hover {
     color: #333;
-}
-
-.popup-background {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    height: 100vh;
-    width: 100%;
-    background-color: transparent;
-}
-
-.popup-options {  
-    position: absolute;
-    right: 85px;
-    top: 150px;
-    background-color: #333;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26); 
-    color: #eee;
-    padding-bottom: 1px;
-}   
-
-.popup-background.show {
-    display: block;
-}
-
-.popup-menu {
-    padding: 4px 20px;
-    border-bottom: 1px solid #444;
-    text-align: left;
-    font-size: 0.9rem;
-    cursor: default;
-    max-height: 24px;
-    overflow: hidden;
-    transition: max-height 0.2s ease;
-}
-
-.popup-menu.active {
-    max-height: 100vh;
-    overflow: visible;
-}
-.popup-menu:hover {
-    background-color: #2c2c2c;
-}
-
-.popup-menu a {
-    text-decoration: none;
-    color: #bbb;
-}
-
-.popup-menu a:hover {
-    color: #eee;
-}
-
-.popup-item {
-    font-size: 0.8rem;
-    cursor: pointer;
-    padding-left: 5px;
-    color: #bbb;
-    overflow: hidden;
-}
-
-.popup-item:hover {
-    color: #eee;
 }
 
 .field-search {
@@ -351,6 +202,141 @@
     padding-right: 20px;
 }
 
+.wrapper-link {
+    display: none;
+    margin-top: 20px;
+    cursor: default;
+    font-size: 0.9rem;
+}
+
+.wrapper-link.show {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    justify-content: space-between;
+}
+
+.wrapper-link .link {
+    color: #436bc3;
+    font-size: 1rem;
+    cursor: auto;
+}
+
+.wrapper-link .copy {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid currentColor;
+    color: #666;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    min-width: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.wrapper-link p {
+    margin: 0;
+}
+
+.wrapper-link .copy:hover {
+    color: currentColor;
+}
+
+/* -------------------- Background -------------------- */
+
+.link-copied {
+    display: none;
+    position: absolute;
+    top: 245px;
+    right: 55px;
+    background-color: rgb(70, 156, 70);
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+}
+
+.alert-error {
+    color: #c44646;
+    margin-bottom: 20px;
+}
+
+
+/* -------- Spreadsheet Options ---------- */
+
+.popup-background {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    background-color: transparent;
+}
+
+.popup-options {  
+    position: absolute;
+    right: 85px;
+    top: 150px;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26); 
+    color: #eee;
+    padding-bottom: 1px;
+}   
+
+.popup-background.show {
+    display: block;
+}
+
+.popup-menu {
+    padding: 4px 20px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+    font-size: 0.9rem;
+    cursor: default;
+    max-height: 24px;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+}
+
+.popup-menu.active {
+    max-height: 100vh;
+    overflow: visible;
+}
+.popup-menu:hover {
+    background-color: #2c2c2c;
+}
+
+.popup-menu a {
+    text-decoration: none;
+    color: #bbb;
+}
+
+.popup-menu a:hover {
+    color: #eee;
+}
+
+.popup-item {
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding-left: 5px;
+    color: #bbb;
+    overflow: hidden;
+}
+
+.popup-item:hover {
+    color: #eee;
+}
+
+/* -------- Background New Spreadsheet --------- */
+
 .mns-background {
     position: absolute;
     display: none;
@@ -452,68 +438,83 @@
     border-top: 1px solid #f2f2f2;
 }
 
-.alert-error {
-    color: #c44646;
-    margin-bottom: 20px;
+/* -------- Background Row --------- */
+
+.background-row {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.089);
+    text-align: center;
 }
 
-.wrapper-link {
-    display: none;
+.background-row.show {
+    display: block;
+}
+
+.background-row .row-count {
     margin-top: 20px;
-    cursor: default;
-    font-size: 0.9rem;
-}
-
-.wrapper-link.show {
-    display: flex;
-    align-items: center;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 3px;
-    justify-content: space-between;
-}
-
-.wrapper-link .link {
-    color: #436bc3;
+    display: inline-block;
+    background-color: white;
+    color: #444;
+    padding: 20px;
     font-size: 1rem;
-    cursor: auto;
-}
-
-.wrapper-link .copy {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid currentColor;
-    color: #666;
-    border-radius: 100%;
-    height: 25px;
-    width: 25px;
-    min-width: 25px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.link-copied {
-    display: none;
-    position: absolute;
-    top: 245px;
-    right: 55px;
-    background-color: rgb(70, 156, 70);
-    color: white;
     border-radius: 3px;
-    padding: 5px 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.137); 
+    text-align: left;
+}
+
+.background-row .row-count-content {
+    margin-bottom: 10px;
+}
+.background-row .row-count input {
+    margin-left: 10px;
+    border: none;
+    border: 1px solid #aaa;
+    border-radius: 3px;
     font-size: 0.9rem;
-    opacity: 0;
+    outline-style: none;
+    width: 100px;
+    padding: 3px 10px;
 }
 
-.wrapper-link p {
-    margin: 0;
+/* -------- Background Welcome --------- */
+
+.background-welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.336);    
 }
 
-.wrapper-link .copy:hover {
-    color: currentColor;
+.background-welcome.show {
+    display: flex;
 }
 
-.error {
-    border-color: #cc3535 !important;
+.welcome {
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288); 
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 20px;
+    color: #ccc;
+}
+
+.welcome h2 {
+    font-size: 1.3rem;
+    cursor: default;
+}
+
+.welcome p {
+    margin-bottom: 20px;
+    cursor: default;
+
 }
