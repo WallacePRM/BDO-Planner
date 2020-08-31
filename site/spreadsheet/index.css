@@ -5,7 +5,6 @@
     font-family: 'Baloo Tamma 2', cursive;
 }
 
-
 /* -------------------- Background -------------------- */
 
 /* -------- Background Row --------- */
@@ -24,7 +23,6 @@
 .background-row.show {
     display: block;
 }
-
 
 .background-row .row-count {
     margin-top: 20px;
@@ -69,6 +67,7 @@
 .background-welcome.show {
     display: flex;
 }
+
 .welcome {
     background-color: #222;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.288); 

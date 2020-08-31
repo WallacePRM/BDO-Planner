@@ -271,12 +271,14 @@ function handleCreateSpreadsheet() {
     };
 
     var $btnConfirm = $('[name="btnConfirm"]');
+
+    $('.mns-background').attr('disabled', 'disabled');
     $btnConfirm.html(`
         <i class="fas fa-spinner fa-pulse"></i>
          Criando planilha
     `);
     $btnConfirm.attr('disabled', 'disabled');
-
+    
     var promise = saveSpreadsheet(spreadsheet);
 
     promise.then(function(response) {
@@ -292,6 +294,7 @@ function handleCreateSpreadsheet() {
         $('.wrapper-link .link').html(link);
         $('.wrapper-link').addClass('show'); 
         
+        $('.mns-background').attr('disabled', null);
         $btnConfirm.html('Confirmar');
         $btnConfirm.attr('disabled', null);
 
@@ -350,7 +353,8 @@ function handleSearchText() {
 
     // Obter valores
     var $filedSearch = $('.field-search');
-    var searchValue = $filedSearch.val().toLowerCase(); 
+    var searchValue = $filedSearch.val().toLowerCase();
+    searchValue = removeDiacritics(searchValue);
 
     // Verificar se o valor obtido esta presente na planilha
     var rows = $('.spreadsheet tbody .row').toArray();
@@ -361,6 +365,7 @@ function handleSearchText() {
 
         for (var i = 0; i < columns.length; i++) {
             var columnValue = $(columns[i]).find('input').val().toLowerCase();
+            columnValue = removeDiacritics(columnValue);
 
             if (columnValue.indexOf(searchValue) !== -1 && searchValue !== '') {
                 $(columns[i]).closest('.row').addClass('selected');
@@ -374,6 +379,8 @@ function handleSearchText() {
 }
 
 function handleShowOptions() {
+
+    $('.popup-menu').removeClass('active');
 
     $('.popup-background').addClass('show');
     $('.spreadsheet-header .options').addClass('active');
