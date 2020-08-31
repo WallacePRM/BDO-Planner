@@ -53,15 +53,6 @@
     padding: 40px;
 }
 
-.content-body {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    top: 100px;
-}
-
 .app-content h2 {
     margin: 0;
     font-size: 2rem;
@@ -97,9 +88,19 @@
     color: white;
 }
 
+.content-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 200px;
+}
+
 /* ------------- SITE PART 3 ------------- */
 
-.footer {
+/*
+.app-footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -108,3 +109,4 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.425);
     border-top: 1px solid #333;
 }
+*/
