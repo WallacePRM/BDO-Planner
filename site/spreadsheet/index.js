@@ -4,7 +4,7 @@
 function enableNewSpreadsheet() {
 
     if (window.location.search === '?newspreadsheet') {
-        
+
         $('.background-welcome').addClass('show');
     }
 }
@@ -15,7 +15,7 @@ function loadSpreadsheet() {
     var parameters = window.location.search;
     var urlParameters = new URLSearchParams(parameters);
     var id = urlParameters.get('id');
-    
+
     if (id !== null) {
 
         loading(true);
@@ -110,7 +110,7 @@ function showSpreadsheet(spreadsheet) {
     $('[name="nameGuild"]').val(spreadsheet.title);
     $('.spreadsheet').addClass('show');
 }
- 
+
 function generateLink(id) {
 
     var link = `${window.location.origin}${window.location.pathname}?id=${id}`;
@@ -601,6 +601,6 @@ function handleHiddenWelcome() {
 $(document).ready(function() {
 
     enableNewSpreadsheet();
-    loadSpreadsheet(); 
+    loadSpreadsheet();
 });
 

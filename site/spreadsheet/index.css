@@ -168,7 +168,7 @@
 
 .column.header {
     padding: 5px 0;
-    background-color: #444;
+    background-color: #333;
     border-left: 1px solid #ddd;
 }
 
@@ -406,7 +406,6 @@
     border: 1px solid #5244a9;
     margin: 10px;
     margin-left: 0;
-    padding: 1px;
 }
 
 .mns-content .field input {
@@ -482,7 +481,6 @@
 }
 
 /* -------- Background Welcome --------- */
-
 .background-welcome {
     position: absolute;
     top: 0;
@@ -492,7 +490,7 @@
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.336);    
+    background-color: rgba(0, 0, 0, 0.350);
 }
 
 .background-welcome.show {
@@ -501,11 +499,12 @@
 
 .welcome {
     background-color: #222;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288); 
-    border: 1px solid #bbb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #bbb;
     border-radius: 3px;
     padding: 20px;
-    color: #ccc;
+    color: #ddd;
+    border-radius: 5px;
 }
 
 .welcome h2 {
@@ -516,5 +515,10 @@
 .welcome p {
     margin-bottom: 20px;
     cursor: default;
+}
 
+@media (max-width: 700px) {
+    .spreadsheet-header {
+        flex-direction: column;
+    }
 }
