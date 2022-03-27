@@ -11,13 +11,13 @@
         <link rel="stylesheet" href="index.css">
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <script src="../jquery-3.4.1.min.js"></script>
-        <title>v2Manager</title>
+        <title>BDO-Planner</title>
     </head>
     <body>
         <div class="app">
             <div class="app-header">
                 <div class="header-left">
-                    <a class="logo-name left" title="Ir para a página inicial" href="../index.html">v2Manager</a> 
+                    <a class="logo-name left" title="Ir para a página inicial" href="../index.html">BDO-Planner</a>
                 </div>
                 <div class="header-right"></div>
             </div>
@@ -44,8 +44,8 @@
                                 </div>
                                 <div onclick="handleShowBackgroundRow()" class="popup-item">
                                     <span>Adicionar linhas</span>
-                                </div>  
-                            </div>   
+                                </div>
+                            </div>
                             <div class="popup-menu active" onclick="togglePopupMenu(event)">
                                 <span>Sites úteis</span>
                                 <div class="popup-item">
@@ -57,11 +57,11 @@
                                 <div class="popup-item">
                                     <a onclick="hiddenOptions()" target="__blank" href="https://grumpygreen.cricket/bdo-ap-brackets/">AP/DP Cap</a>
                                 </div>
-                                
-                            </div>      
+
+                            </div>
                         </div>
                     </div>
-                
+
                 </div>
                 <div class="wrapper-link">
                     <p>
@@ -77,15 +77,15 @@
                     </div>
                 </div>
                 <div class="wrapper-spreadsheet">
-                    
+
                     <table class="spreadsheet">
                         <thead>
                             <tr class="row header"></tr>
                         </thead>
                         <tbody></tbody>
-                        
+
                     </table>
-                    
+
                 </div>
             </div>
         </div>
@@ -137,14 +137,14 @@
                             <input name="columnName" type="text" placeholder="Nome da coluna" value="GS">
                             <i onclick="handleRemoveColumn(event)" class="fa fa-times"></i>
                         </div>
-                        
+
                         <i onclick="handleNewColumn()" name="btnNewColumn" class="fa fa-plus btn btn-primary" title="Adicionar coluna"></i>
                     </div>
                 </div>
                 <div class="mns-footer">
                     <p style="display: none" class="alert-error">Não é possível adicionar colunas repetidas</p>
                     <button onclick="handleCreateSpreadsheet()" name="btnConfirm" class="btn btn-primary">Confirmar</button>
-                </div>  
+                </div>
             </div>
         </div>
 
@@ -154,7 +154,7 @@
 
         <div class="background-welcome">
             <div class="welcome">
-                <h2>Obrigado por usar o V2Manager</h2>
+                <h2>Obrigado por usar o BDO-Planner</h2>
                 <p>Após finalizar a criação, lembre-se: um link será gerado para acessar a sua planilha, não o perca.</p>
                 <button onclick="handleHiddenWelcome()" class="btn btn-primary">Continuar</button>
             </div>

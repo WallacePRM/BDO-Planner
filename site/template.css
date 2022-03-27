@@ -15,7 +15,8 @@ body {
 
 /* -------------- Global CSS ------------- */
 
-input {
+button, select, input {
+    font-family: 'Baloo Tamma 2', cursive;
     outline-style: none;
 }
 
@@ -36,17 +37,17 @@ p {
 ::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #444;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
@@ -88,7 +89,7 @@ p {
 }
 
 .app-content {
-    margin: 20px 50px; 
+    margin: 20px 50px;
 }
 
 .btn {
@@ -103,7 +104,7 @@ p {
     background-color: #5244a9;
     color: white;
     outline-style: none;
-} 
+}
 
 .btn-primary:hover {
     background-color: #6453d4;

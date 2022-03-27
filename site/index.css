@@ -66,6 +66,8 @@
 }
 
 .app-content .btn-success {
+    display: flex;
+    align-items: center;
     font-size: 0.9rem;
     padding: 5px 20px;
     border: none;
@@ -74,7 +76,6 @@
     color: white;
     cursor: pointer;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 .app-content .btn-success:hover {
@@ -83,7 +84,7 @@
 .app-content .btn-success i {
     margin: 0;
     margin-left: 10px;
-    color: white;
+    padding-bottom: 3px;
 }
 
 .content-body {
@@ -94,17 +95,3 @@
     flex-direction: column;
     top: 200px;
 }
-
-/* ------------- SITE PART 3 ------------- */
-
-/*
-.app-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: rgba(0, 0, 0, 0.562);
-    height: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.425);
-    border-top: 1px solid #333;
-}
-*/

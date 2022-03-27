@@ -1,3 +1,3 @@
-# V2Manager
+# BDO-Planner
 
- https://inextzbgd.github.io/V2Manager/site
+ https://inextzbgd.github.io/BDO-Planner/site
