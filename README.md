@@ -1,3 +1,3 @@
 # BDO-Planner
 
- https://inextzbgd.github.io/BDO-Planner/site
+ https://wallaceprm.github.io/BDO-Planner/
